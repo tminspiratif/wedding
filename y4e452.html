@@ -14,7 +14,7 @@
           <link rel="icon" type="image/x-icon" href="https://firebasestorage.googleapis.com/v0/b/wedding-digital.appspot.com/o/thumbnail%2Fafb3080c24e2d1b60dc14b10e16694f6.jpg?alt=media&token=54fbee87-ce64-4e64-9a80-8374d6f553a1" />
           <script>
           function getParamsObject(url) {
-            if(url.split('?').length<=1) return {};
+            if (url.split('?').length <= 1) return {};
             const queryString = url.split('?')[1];
             const queryParams = queryString.split('&');
             const paramsObject = {};
@@ -24,15 +24,16 @@
             });
             return paramsObject;
           }
-          function mapping(url,params){
-            if(!params) return url;
-            let nurl = ''
-            for(var i in params){
-              nurl+='&'+i+'='+params[i];
+          
+          function mapping(url, params) {
+            if (!params) return url;
+            let nurl = url.includes('?') ? url : url + '?';
+            for (var i in params) {
+              nurl += '&' + i + '=' + params[i];
             }
-            if(!nurl) return url;
-            return url+'&'+(nurl.substring(1));
+            return nurl;
           }
+          
           const params = getParamsObject(window.location.href);
           window.location.href = mapping('https://wedding-digital.web.app/#/share/3Jk9cMa088RRZrIHlRp2',params);
           </script>
