@@ -25,6 +25,7 @@
             return paramsObject;
           }
           function mapping(url,params){
+            if(!params) return url;
             let nurl = ''
             for(var i in params){
               nurl+='&'+i+'='+params[i];
@@ -33,8 +34,6 @@
             return url+'?'+(nurl.substring(1));
           }
           const params = getParamsObject(window.location.href);
-          const url = window.location.href;
-
           window.location.href = mapping('https://wedding-digital.web.app/#/share/undefined',params);
           </script>
       </html>
